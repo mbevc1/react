@@ -31,6 +31,7 @@ func Run(cmd *string) {
 		//panic(err)
 		fmt.Printf("Error from command: %s\n", err)
 	}
+	//fmt.Printf("Run command: %s\n", *cmd)
 	fmt.Printf("Output:\n %s\n", output)
 }
 
@@ -39,5 +40,5 @@ func Download(remote string, local string) {
 	if err != nil {
 		panic(err)
 	}
-	fmt.Printf("Download success\n")
+	fmt.Printf("Download: %s -> %s\n", remote, local)
 }
