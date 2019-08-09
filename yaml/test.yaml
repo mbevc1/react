@@ -1,0 +1,7 @@
+---
+mts:
+- host: 'test.localhost'
+  name: 'test'
+  user: 'u'
+  pass: 'p'
+  group: 'g1'
