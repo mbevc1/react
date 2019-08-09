@@ -12,8 +12,7 @@ RED=\033[31;01m
 VER?=dev
 GHASH:=$(shell git rev-parse --short HEAD)
 GO:=            go
-GO_BUILD:=      go build -mod vendor
-#-ldflags "-s -w -X main.GitCommit=${GHASH}" 
+GO_BUILD:=      go build -mod vendor -ldflags "-s -w -X main.GitCommit=${GHASH}" 
 GO_VENDOR:=     go mod vendor
 BIN:=           react
 
@@ -56,21 +55,25 @@ lint:
 vet:
 	go vet --all $(BIN) ./...
 
-$(BIN)_amd64: vendor **/*.go
+$(BIN)_linux_amd64: vendor **/*.go
 	GOOS=linux GOARCH=amd64 CGO_ENABLED=1 go build -o $@ *.go
 	upx $@
 
-$(BIN)_alpine: vendor **/*.go
+$(BIN)_linux_alpine: vendor **/*.go
 	GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -o $@ *.go
 	upx $@
 
-$(BIN)_darwin: vendor **/*.go
+$(BIN)_darwin_amd64: vendor **/*.go
 	GOOS=darwin go build -o $@ *.go
 	upx $@
 
-$(BIN).exe: vendor **/*.go
+$(BIN)_windows_amd64.exe: vendor **/*.go
 	GOOS=windows GOARCH=amd64 go build -o $@ *.go
 	upx $@
+
+pack: $(BIN)_linux_amd64 $(BIN)_windows_amd64.exe
+	zip $(BIN)_linux_amd64.zip $(BIN)_linux_amd64
+	zip $(BIN)_windows_amd64.zip $(BIN)_windows_amd64.exe
 
 fmtcheck: vendor **/*.go ## Check formatting
 	@gofmt_files=$$(gofmt -l `find . -name '*.go' | grep -v vendor`); \

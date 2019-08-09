@@ -28,6 +28,9 @@ func main() {
 
 	if *ver {
 		fmt.Printf("%s v%v\n", Name, Version)
+		if GitCommit != "" {
+			fmt.Printf("Commit hash: %v\n", GitCommit)
+		}
 		os.Exit(0)
 	} else if *cmd == "" && !*bck && !*rbt && !*upg {
 		fmt.Printf("%s v%v\n", Name, Version)
