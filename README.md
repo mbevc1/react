@@ -26,4 +26,4 @@ Example configuration structure is:
 ```
 
 ## Author
-@mbevc1
+* **Marko Bevc** - [@mbevc1](https://github.com/mbevc1)
