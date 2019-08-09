@@ -71,8 +71,9 @@ $(BIN)_windows_amd64.exe: vendor **/*.go
 	GOOS=windows GOARCH=amd64 go build -o $@ *.go
 	upx $@
 
-pack: $(BIN)_linux_amd64 $(BIN)_windows_amd64.exe
+pack: $(BIN)_linux_amd64 $(BIN)_darwin_amd64 $(BIN)_windows_amd64.exe
 	zip $(BIN)_linux_amd64.zip $(BIN)_linux_amd64
+	zip $(BIN)_darwin_amd64.zip $(BIN)_darwin_amd64
 	zip $(BIN)_windows_amd64.zip $(BIN)_windows_amd64.exe
 
 fmtcheck: vendor **/*.go ## Check formatting
