@@ -1,4 +1,4 @@
-module react
+module github.com/mbevc1/react
 
 go 1.12
 
