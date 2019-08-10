@@ -13,6 +13,7 @@ Configuration of devices is read from `mts.yaml` or set by `-f` parameter.
 Example configuration structure is:
 ```yaml
 ---
+mts:
 - host: '127.0.0.1'
   name: 'name1'
   user: 'user1'
