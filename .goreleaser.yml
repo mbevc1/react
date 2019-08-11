@@ -1,4 +1,10 @@
 project_name: react
+env:
+    - GO111MODULE=on
+    - GOPROXY=https://gocenter.io
+before:
+  hooks:
+    - go mod vendor
 builds:
     - binary: react
       main: ./main.go
