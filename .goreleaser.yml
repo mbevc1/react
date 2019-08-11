@@ -1,0 +1,21 @@
+project_name: react
+builds:
+    - binary: react
+      main: ./main.go
+      goos:
+          - linux
+          - darwin
+          - windows
+      goarch:
+          - amd64
+      env:
+          - CGO_ENABLED=0
+
+archives:
+    - id: react
+      format: zip
+      files:
+          - none
+
+release:
+    disable: true
