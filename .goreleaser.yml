@@ -24,4 +24,5 @@ archives:
           - none*
 
 release:
-    disable: true
+    draft: true
+    disable: false
