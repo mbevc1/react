@@ -1,10 +1,10 @@
 # ReAcT
-Remote Execution Automation Control Tool
+Remote Execution Automation Control Tool (Remote Execution ACTions).
 
 ## Usage
 This simple tool can be used for remote execution and automation of tasks.
 
-Example will execute command on all devices in group1:
+Example will execute command on all devices in `group1`:
 ```bash
 # react -g group1 -c "<some_cmd>
 ```
