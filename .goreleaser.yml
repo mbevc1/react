@@ -7,7 +7,7 @@ before:
     - go mod vendor
 builds:
     - binary: react
-      main: ./main.go
+      main: .
       goos:
           - linux
           - darwin
