@@ -4,7 +4,7 @@ package main
 var GitCommit string
 
 //Version current app version
-var Version = "0.1.2"
+var Version = "0.1.3"
 
 //Name of the app
 var Name = "ReAcT"

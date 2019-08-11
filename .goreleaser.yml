@@ -1,7 +1,13 @@
 project_name: react
+env:
+    - GO111MODULE=on
+    - GOPROXY=https://gocenter.io
+before:
+  hooks:
+    - go mod vendor
 builds:
     - binary: react
-      main: ./main.go
+      #main: ./main.go
       goos:
           - linux
           - darwin
@@ -15,7 +21,8 @@ archives:
     - id: react
       format: zip
       files:
-          - none
+          - none*
 
 release:
-    disable: true
+    draft: true
+    disable: false
