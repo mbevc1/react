@@ -21,7 +21,7 @@ archives:
     - id: react
       format: zip
       files:
-          - none
+          - none*
 
 release:
     disable: true
