@@ -11,7 +11,6 @@ Example will execute command on all devices in `group1`:
 
 Configuration of devices is read from `mts.yaml` or set by `-f` parameter.
 Example configuration structure is:
-
 ```yaml
 ---
 mts:
