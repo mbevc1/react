@@ -27,4 +27,4 @@ mts:
 ```
 
 ## Author
-* **Marko Bevc** - [@mbevc1](https://github.com/mbevc1)
+* *Marko Bevc* - [@mbevc1](https://github.com/mbevc1)
