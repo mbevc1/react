@@ -15,13 +15,17 @@ before_script:
   - mkdir -p $GOPATH/src/$(dirname $REPO_NAME)
   - ln -svf $CI_PROJECT_DIR $GOPATH/src/$REPO_NAME
   - cd $GOPATH/src/$REPO_NAME
+  - gGO111MODULE=on go mod vendor
 
 stages:
   - test
   - build
   - deploy
 
-format:
+check:
+  except:
+    refs:
+      - master
   stage: test
   script:
     - go fmt $(go list ./... | grep -v /vendor/)
@@ -29,6 +33,9 @@ format:
     - go test -race $(go list ./... | grep -v /vendor/)
 
 compile:
+  only:
+    refs:
+      - master
   stage: build
   script:
     - go build -race -ldflags "-extldflags '-static'" -o $CI_PROJECT_DIR/react
