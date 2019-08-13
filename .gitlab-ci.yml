@@ -23,9 +23,8 @@ stages:
   - deploy
 
 check:
-  except:
-    refs:
-      - master
+  only:
+    - merge_request
   stage: test
   script:
     - go fmt $(go list ./... | grep -v /vendor/)
