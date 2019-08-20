@@ -6,6 +6,7 @@ name: ReAcT
 jobs:
   is-tag:
     name: Is Tag
+    runs-on: ubuntu-latest
     steps:
     - name: Check for Tag
       uses: actions/bin/filter@master
