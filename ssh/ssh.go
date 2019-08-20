@@ -16,8 +16,8 @@ func Conn(host *string, user *string, pass *string) {
 	var err error
 	client, err = simplessh.ConnectWithPassword(*host, *user, *pass)
 	if err != nil {
-		panic(err)
 		defer client.Close()
+		panic(err)
 	}
 }
 

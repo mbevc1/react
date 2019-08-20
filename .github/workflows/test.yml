@@ -17,7 +17,10 @@ jobs:
         go mod vendor
       if: success()
     - name: Test
-      run: go test -v ./...
+      run: |
+        go fmt $(go list ./... | grep -v /vendor/)
+        go vet $(go list ./... | grep -v /vendor/)
+        go test -v ./...
       if: success()
     - name: Build
       run: go build -mod vendor ./...

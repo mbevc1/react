@@ -28,13 +28,14 @@ stages:
     - deploy
 
 check:
-  only:
-      - merge_requests
-  stage: test
-  script:
-      - go fmt $(go list ./... | grep -v /vendor/)
-      - go vet $(go list ./... | grep -v /vendor/)
-      - go test -race $(go list ./... | grep -v /vendor/)
+    except:
+        refs:
+            - master
+    stage: test
+    script:
+        - go fmt $(go list ./... | grep -v /vendor/)
+        - go vet $(go list ./... | grep -v /vendor/)
+        - go test -race $(go list ./... | grep -v /vendor/)
 
 compile:
     only:

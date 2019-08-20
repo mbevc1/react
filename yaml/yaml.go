@@ -17,7 +17,7 @@ type Config struct {
 }
 
 type Configs struct {
-	Cfgs []Config `mts`
+	Cfgs []Config `yaml:"mts"`
 }
 
 func Parse(filename string) *Configs {
