@@ -2,8 +2,7 @@ on:
   push:
     branches:
       - master
-    tags:
-      - v*
+      - !refs/tag/*
 name: ReAcT
 jobs:
   release:
