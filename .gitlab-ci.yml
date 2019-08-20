@@ -37,7 +37,7 @@ compile:
       - master
   stage: build
   script:
-      - GO111MODULE=on go mod vendor
+      - go get -u github.com/sfreiberg/simplessh
       - GO111MODULE=on go build -mod vendor -race -ldflags "-extldflags '-static'" -o $CI_PROJECT_DIR/react
   artifacts:
     paths:
