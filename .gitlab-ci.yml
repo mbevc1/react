@@ -30,7 +30,7 @@ stages:
 check:
     only:
         refs:
-            - merge_requests
+            - pull_requests
     stage: test
     script:
         - go fmt $(go list ./... | grep -v /vendor/)
