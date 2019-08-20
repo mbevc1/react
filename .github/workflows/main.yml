@@ -2,14 +2,17 @@ on:
   push:
     branches:
       - master
-      - !refs/tags/v*
 name: ReAcT
 jobs:
   release:
     name: Release
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
+    - name: Check for Tag
+      uses: actions/bin/filter@master
+      args: tag
+    - name: Check out code
+      uses: actions/checkout@master
     - name: goreleaser
       uses: docker://goreleaser/goreleaser
       env:
