@@ -12,6 +12,7 @@ jobs:
       uses: actions/bin/filter@master
       with:
         args: tag
+      continue-on-error: true
   release:
     name: Release
     runs-on: ubuntu-latest
