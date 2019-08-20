@@ -12,7 +12,7 @@ RED=\033[31;01m
 VER?=dev
 GHASH:=$(shell git rev-parse --short HEAD)
 GO:=            go
-GO_BUILD:=      go build -mod vendor -ldflags "-s -w -X main.GitCommit=${GHASH}" 
+GO_BUILD:=      go build -mod vendor -ldflags "-s -w -X main.GitCommit=${GHASH}"
 GO_VENDOR:=     go mod vendor
 BIN:=           react
 

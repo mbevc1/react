@@ -37,7 +37,8 @@ compile:
       - master
   stage: build
   script:
-    - GO111MODULE=on go build -mod vendor -race -ldflags "-extldflags '-static'" -o $CI_PROJECT_DIR/react
+      - GO111MODULE=on go mod vendor
+      - GO111MODULE=on go build -mod vendor -race -ldflags "-extldflags '-static'" -o $CI_PROJECT_DIR/react
   artifacts:
     paths:
       - react
