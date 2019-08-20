@@ -10,7 +10,8 @@ jobs:
     steps:
     - name: Check for Tag
       uses: actions/bin/filter@master
-      args: tag
+      with:
+        args: tag
     - name: Check out code
       uses: actions/checkout@master
     - name: goreleaser
