@@ -13,7 +13,9 @@ variables:
 # Thus, making a symbolic link corrects this.
 before_script:
   - mkdir -p $GOPATH/src/$(dirname $REPO_NAME)
-  - ln -svf $CI_PROJECT_DIR $GOPATH/src/$REPO_NAME
+#  - ln -svf $CI_PROJECT_DIR $GOPATH/src/$REPO_NAME
+#  - cd $GOPATH/src/$REPO_NAME
+  - cp -a $CI_PROJECT_DIR $GOPATH/src/$(dirname $REPO_NAME)/
   - cd $GOPATH/src/$REPO_NAME
   - GO111MODULE=on go mod vendor
 
@@ -37,8 +39,7 @@ compile:
       - master
   stage: build
   script:
-      - GO111MODULE=on go get -u github.com/sfreiberg/simplessh
       - GO111MODULE=on go build -mod vendor -race -ldflags "-extldflags '-static'" -o $CI_PROJECT_DIR/react
   artifacts:
     paths:
-      - react
+        - react
