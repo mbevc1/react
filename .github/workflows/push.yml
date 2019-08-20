@@ -1,9 +1,9 @@
 on: [push]
 name: ReAcT
+branches:
+  - master
 jobs:
   release:
-    branches:
-      - master
     name: Release
     runs-on: ubuntu-latest
     steps:
