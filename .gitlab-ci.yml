@@ -5,7 +5,8 @@ variables:
   # Please edit to your GitLab project
   REPO_NAME: github.com/mbevc1/react
   GOPATH: $CI_BUILDS_DIR/go
-  GIT_CLONE_PATH: $GOPATH/src/$REPO_NAME
+  # Nested variables not supported
+  GIT_CLONE_PATH: $CI_BUILDS_DIR/go/src/$REPO_NAME
 
 # The problem is that to be able to use go get, one needs to put
 # the repository in the $GOPATH. So for example if your gitlab domain
