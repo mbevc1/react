@@ -22,3 +22,6 @@ jobs:
     - name: Test
       run: go test -v ./...
       if: success()
+    - name: Build
+      run: go -mod vendor build ./...
+      if: success()
