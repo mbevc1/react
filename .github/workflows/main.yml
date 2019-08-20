@@ -14,12 +14,14 @@ jobs:
         args: tag
     - name: Check out code
       uses: actions/checkout@master
+      if: success
     - name: goreleaser
       uses: docker://goreleaser/goreleaser
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         args: release
+      if: success
   test:
     name: Test
     runs-on: ubuntu-latest
