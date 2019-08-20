@@ -4,18 +4,20 @@ on:
       - master
 name: ReAcT
 jobs:
-  release:
-    name: Release
+  is-tag:
+    name: Is Tag
     runs-on: ubuntu-latest
-    needs: [ test ]
     steps:
     - name: Check for Tag
       uses: actions/bin/filter@master
       with:
         args: tag
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    needs: [ is-tag, test ]
     - name: Check out code
       uses: actions/checkout@master
-      if: success()
     - name: goreleaser
       uses: docker://goreleaser/goreleaser
       env:
@@ -37,5 +39,7 @@ jobs:
     - name: Get dependencies
       run: |
         go mod vendor
+      if: success()
     - name: Test
       run: go test -v ./...
+      if: success()
