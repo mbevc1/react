@@ -5,12 +5,14 @@ Remote Execution Automation Control Tool (Remote Execution ACTions).
 This simple tool can be used for remote execution and automation of tasks.
 
 Example will execute command on all devices in `group1`:
+
 ```bash
 # react -g group1 -c "<some_cmd>
 ```
 
 Configuration of devices is read from `mts.yaml` or set by `-f` parameter.
 Example configuration structure is:
+
 ```yaml
 ---
 mts:

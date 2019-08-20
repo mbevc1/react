@@ -2,11 +2,11 @@
 image: golang:latest
 
 variables:
-  # Please edit to your GitLab project
-  REPO_NAME: github.com/mbevc1/react
-  GOPATH: $CI_BUILDS_DIR/go
-  # Nested variables not supported
-  GIT_CLONE_PATH: $CI_BUILDS_DIR/go/src/$REPO_NAME
+    # Please edit to your GitLab project
+    REPO_NAME: github.com/mbevc1/react
+    GOPATH: $CI_BUILDS_DIR/go
+    # Nested variables not supported
+    GIT_CLONE_PATH: $CI_BUILDS_DIR/go/src/$REPO_NAME
 
 # The problem is that to be able to use go get, one needs to put
 # the repository in the $GOPATH. So for example if your gitlab domain
@@ -20,29 +20,29 @@ before_script:
 #  - cd $GOPATH/src/$REPO_NAME
 #- cp -a $CI_PROJECT_DIR $GOPATH/src/$(dirname $REPO_NAME)/
 #- cd $GOPATH/src/$REPO_NAME
-  - GO111MODULE=on go mod vendor
+    - GO111MODULE=on go mod vendor
 
 stages:
-  - test
-  - build
-  - deploy
+    - test
+    - build
+    - deploy
 
 check:
   only:
-    - merge_request
+      - merge_requests
   stage: test
   script:
-    - go fmt $(go list ./... | grep -v /vendor/)
-    - go vet $(go list ./... | grep -v /vendor/)
-    - go test -race $(go list ./... | grep -v /vendor/)
+      - go fmt $(go list ./... | grep -v /vendor/)
+      - go vet $(go list ./... | grep -v /vendor/)
+      - go test -race $(go list ./... | grep -v /vendor/)
 
 compile:
-  only:
-    refs:
-      - master
-  stage: build
-  script:
-      - GO111MODULE=on go build -mod vendor -race -ldflags "-extldflags '-static'" -o $CI_PROJECT_DIR/react
-  artifacts:
-    paths:
-        - react
+    only:
+        refs:
+            - master
+    stage: build
+    script:
+        - GO111MODULE=on go build -mod vendor -race -ldflags "-extldflags '-static'" -o $CI_PROJECT_DIR/react
+    artifacts:
+        paths:
+            - react
