@@ -1,22 +1,13 @@
 on:
   push:
     branches:
-      - master
+      - releases/*
 name: ReAcT
 jobs:
-  is-tag:
-    name: Is Tag
-    runs-on: ubuntu-latest
-    steps:
-    - name: Check for Tag
-      uses: actions/bin/filter@master
-      with:
-        args: tag
-      continue-on-error: true
   release:
     name: Release
     runs-on: ubuntu-latest
-    needs: [ is-tag, test ]
+    needs: [ test ]
     steps:
     - name: Check out code
       uses: actions/checkout@master
