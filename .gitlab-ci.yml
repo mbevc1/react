@@ -29,7 +29,8 @@ stages:
 
 check:
     except:
-        - master
+        refs:
+            - master
     stage: test
     script:
         - go fmt $(go list ./... | grep -v /vendor/)
