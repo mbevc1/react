@@ -28,9 +28,9 @@ stages:
     - deploy
 
 check:
-    except:
+    only:
         refs:
-            - master
+            - branches
     stage: test
     script:
         - go fmt $(go list ./... | grep -v /vendor/)
