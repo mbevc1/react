@@ -30,4 +30,3 @@ mts:
 
 ## Authors
 * *Marko Bevc* - [@mbevc1](https://github.com/mbevc1)
-
