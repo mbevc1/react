@@ -1,7 +1,7 @@
 on:
   push:
     branches:
-      - 'releases/*'
+      - 'refs/tags/*'
 name: ReAcT-release
 jobs:
   release:
