@@ -1,7 +1,7 @@
 on:
   push:
     tags:
-      - 'v0.1*'
+      - 'v*'
 name: ReAcT-release
 jobs:
   release:
