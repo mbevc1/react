@@ -21,7 +21,10 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Lint
-      run: make vet
+      run: -|
+        make vet
+        go get -u golang.org/x/lint/golint
+        make lint
       if: success()
 
     - name: Test
