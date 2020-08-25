@@ -27,7 +27,7 @@ $(BIN): vendor ## Produce binary
 vendor: **/*.go ## Build vendor deps
 	GO111MODULE=on $(GO_VENDOR)
 
-clean: ## Clean artefacts
+clean: clean-vendor ## Clean artefacts
 	rm -rf $(BIN) $(BIN)_* $(BIN).exe
 
 clean-vendor: ## Clean vendor folder
@@ -50,10 +50,10 @@ fmt: **/*.go ## Formt Golang code
 	go fmt ./...
 
 lint:
-	golint $(BIN)
+	golint ./...
 
 vet:
-	go vet --all $(BIN) ./...
+	go vet -all ./...
 
 $(BIN)_linux_amd64: vendor **/*.go
 	GOOS=linux GOARCH=amd64 CGO_ENABLED=1 go build -o $@ *.go
