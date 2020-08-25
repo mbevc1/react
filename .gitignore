@@ -2,3 +2,4 @@ react*
 mts.yaml
 vendor/
 backups/
+go.sum
