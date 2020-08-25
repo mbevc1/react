@@ -28,7 +28,7 @@ vendor: **/*.go ## Build vendor deps
 	GO111MODULE=on $(GO_VENDOR)
 
 clean: clean-vendor ## Clean artefacts
-	rm -rf $(BIN) $(BIN)_* $(BIN).exe
+	rm -rf $(BIN) $(BIN)_* $(BIN).exe go.sum
 
 clean-vendor: ## Clean vendor folder
 	rm -rf vendor
