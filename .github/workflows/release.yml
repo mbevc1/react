@@ -48,7 +48,7 @@ jobs:
       with:
         version: latest
         args: release --rm-dist
-        workdir: ./react
+        workdir: .
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         VERSION: ${{ env.VERSION }}
