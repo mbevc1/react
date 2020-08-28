@@ -2,7 +2,9 @@
 on:
   push:
     paths:
-    - '*/**'
+      - '*/**'
+    tags-ignore:
+      - 'v*'
   workflow_dispatch:
 
 name: ReAcT-testing
