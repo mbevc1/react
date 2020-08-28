@@ -1,28 +1,40 @@
 project_name: react
+
+source:
+  enabled: false
+
 env:
-    - GO111MODULE=on
-    - GOPROXY=https://gocenter.io
+  - GO111MODULE=on
+  - GOPROXY=https://gocenter.io
+
 before:
   hooks:
     - go mod vendor
+
 builds:
-    - binary: react
-      #main: ./main.go
-      goos:
-          - linux
-          - darwin
-          - windows
-      goarch:
-          - amd64
-      env:
-          - CGO_ENABLED=0
+  - binary: react
+    #main: ./main.go
+    goos:
+      - linux
+      - darwin
+      - windows
+    goarch:
+      - amd64
+    env:
+      - CGO_ENABLED=0
 
 archives:
-    - id: react
-      format: zip
-      files:
-          - none*
+  - id: react
+    format: zip
+    files:
+      - none*
 
 release:
-    draft: false
-    disable: false
+  prerelease: auto
+  draft: false
+  disable: false
+
+
+checksum:
+  name_template: "{{ .ProjectName }}_{{ .Version }}_sha256_checksums.txt"
+  algorithm: sha256
