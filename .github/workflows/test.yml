@@ -2,7 +2,7 @@
 on:
   push:
     branches:
-      - '*/**'
+      - '*'
   workflow_dispatch:
 
 name: ReAcT-testing
