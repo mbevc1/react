@@ -28,8 +28,8 @@ builds:
 
 archives:
   - id: react
-    builds:
-      - default
+    #builds:
+    #  - default
     format: zip
     name_template: "{{ .ProjectName }}_{{ .Os }}_{{ .Arch }}"
     #replacements:
