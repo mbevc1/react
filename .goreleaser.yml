@@ -22,14 +22,14 @@ builds:
       - amd64
     env:
       - CGO_ENABLED=0
-    #flags:
-    #  - -v
+    flags:
+      - -v
     #ldflags: -X github.com/mbevc1/react/main.Version={{.Env.VERSION}}
 
 archives:
   - id: react
     #builds:
-    #  - default
+    #  - react|default
     format: zip
     name_template: "{{ .ProjectName }}_{{ .Os }}_{{ .Arch }}"
     #replacements:
@@ -50,5 +50,6 @@ release:
 
 
 checksum:
-  name_template: "{{ .ProjectName }}_{{ .Version }}_sha256_checksums.txt"
+  #name_template: "{{ .ProjectName }}_{{ .Version }}_sha256_checksums.txt"
+  name_template: "{{ .ProjectName }}_sha256_checksums.txt"
   algorithm: sha256
