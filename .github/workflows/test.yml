@@ -3,8 +3,6 @@ on:
   push:
     branches:
       - '*/**'
-    tags:
-      - '!v*'
   workflow_dispatch:
 
 name: ReAcT-testing
