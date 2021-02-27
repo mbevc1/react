@@ -1,6 +1,6 @@
 module github.com/mbevc1/react
 
-go 1.14
+go 1.15
 
 require (
 	github.com/davidmz/go-pageant v1.0.1 // indirect
