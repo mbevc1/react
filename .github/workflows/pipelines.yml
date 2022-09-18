@@ -27,6 +27,7 @@ jobs:
 
     - name: Lint
       run: |
+        make fmt
         make vet
         #go get -u golang.org/x/lint/golint
         #make lint
