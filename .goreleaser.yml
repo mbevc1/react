@@ -9,6 +9,7 @@ env:
 
 before:
   hooks:
+    - go mod download
     - go mod vendor
 
 builds:
@@ -53,3 +54,8 @@ checksum:
   #name_template: "{{ .ProjectName }}_{{ .Version }}_sha256_checksums.txt"
   name_template: "{{ .ProjectName }}_checksums_sha256.txt"
   algorithm: sha256
+
+changelog:
+  skip: false
+  #use: github
+  sort: asc
