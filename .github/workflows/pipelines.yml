@@ -16,13 +16,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Set up Go 1.x
-      uses: actions/setup-go@v2
+      uses: actions/setup-go@v3
       with:
-        go-version: '1.15'
+        go-version: '1.18'
+        check-latest: true
       id: go
 
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Lint
       run: |
@@ -55,19 +56,20 @@ jobs:
 #        args: release
 #      if: success()
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Unshallow
       run: git fetch --prune --unshallow
 
     - name: Set up Go 1.x
-      uses: actions/setup-go@v2
+      uses: actions/setup-go@v3
       with:
-        go-version: '1.15'
+        go-version: '1.18'
+        check-latest: true
       id: go
 
     - name: Check out code into the Go module directory
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Generate build tag
       run: |
@@ -79,7 +81,7 @@ jobs:
       run: echo "${VERSION}"
 
     - name: Run GoReleaser
-      uses: goreleaser/goreleaser-action@v2
+      uses: goreleaser/goreleaser-action@v3
       with:
         version: latest
         args: release --rm-dist
