@@ -7,7 +7,7 @@ on:
       - 'v*'
     #tag-ignore:
     #  - 'v*'
-  workflow_dispatch:
+  workflow_dispatch: {}
 
 name: ReAcT
 jobs:
