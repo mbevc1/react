@@ -1,6 +1,6 @@
 module github.com/mbevc1/react
 
-go 1.18
+go 1.19
 
 require (
 	github.com/sfreiberg/simplessh v0.0.0-20220719182921-185eafd40485
