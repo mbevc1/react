@@ -3,8 +3,8 @@ project_name: react
 source:
   enabled: false
 
-env:
-  - GO111MODULE=on
+#env:
+  #- GO111MODULE=on
   #- GOPROXY=https://gocenter.io
 
 before:
@@ -32,7 +32,10 @@ builds:
       - GOTELEMETRY="off"
     flags:
       - -v
-    ldflags: -X github.com/mbevc1/react/main.Version={{.Env.VERSION}}
+    #ldflags: -X github.com/mbevc1/react/main.Version={{.Env.VERSION}}
+
+upx:
+  - enabled: true
 
 archives:
   - id: react
@@ -61,7 +64,6 @@ release:
   prerelease: auto
   draft: false
   disable: false
-
 
 checksum:
   #name_template: "{{ .ProjectName }}_{{ .Version }}_sha256_checksums.txt"
