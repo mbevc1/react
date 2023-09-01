@@ -42,7 +42,7 @@ func main() {
 		if *hlp {
 			os.Exit(0)
 		} else {
-			fmt.Println("Missing and action!")
+			fmt.Println("Missing an action!")
 			os.Exit(1)
 		}
 	}
