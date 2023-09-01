@@ -11,6 +11,7 @@ before:
   hooks:
     - go mod tidy
     - go mod vendor
+    #- go mod download
 
 builds:
   - binary: react
@@ -21,8 +22,14 @@ builds:
       - windows
     goarch:
       - amd64
+    targets:
+      - linux_amd64
+      - windows_amd64
+      - darwin_amd64
+      - darwin_arm64
     env:
       - CGO_ENABLED=0
+      - GOTELEMETRY="off"
     flags:
       - -v
     #ldflags: -X github.com/mbevc1/react/main.Version={{.Env.VERSION}}
@@ -31,8 +38,11 @@ archives:
   - id: react
     #builds:
     #  - react|default
-    format: zip
-    name_template: "{{ .ProjectName }}_{{ .Os }}_{{ .Arch }}"
+    #format: zip
+    #name_template: "{{ .ProjectName }}_{{ .Os }}_{{ .Arch }}"
+    format_overrides:
+      - goos: windows
+        format: zip
     #replacements:
     #  darwin: Darwin
     #  linux: Linux
@@ -44,6 +54,9 @@ archives:
     files:
       - none*
 
+universal_binaries:
+ - replace: true
+
 release:
   prerelease: auto
   draft: false
@@ -52,10 +65,10 @@ release:
 
 checksum:
   #name_template: "{{ .ProjectName }}_{{ .Version }}_sha256_checksums.txt"
-  name_template: "{{ .ProjectName }}_checksums_sha256.txt"
+  name_template: "{{ .ProjectName }}_{{ .Version }}_sha256_checksums.txt"
   algorithm: sha256
 
 changelog:
   skip: false
-  #use: github
+  use: git # github(-native)
   sort: asc
