@@ -28,5 +28,24 @@ mts:
   group: 'group2'
 ```
 
+## Installing
+
+1. Download `react` from the [releases](https://github.com/mbevc1/react/releases)
+2. Run `./react -v` to check if it's working correctly.
+3. Enjoy!
+
+## Contributing
+
+Report issues/questions/feature requests on in the [issues](https://github.com/mbevc1/react/issues/new) section.
+
+Full contributing [guidelines are covered here](CONTRIBUTING.md).
+
 ## Authors
+
 * *Marko Bevc* - [@mbevc1](https://github.com/mbevc1)
+
+* Full [contributors list](https://github.com/mbevc1/react/graphs/contributors)
+
+## License
+
+GPL-3 Licensed. See [LICENSE](LICENSE) for full details.
