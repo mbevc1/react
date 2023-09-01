@@ -1,3 +1,5 @@
+[![ReAcT](https://github.com/mbevc1/react/actions/workflows/pipelines.yml/badge.svg)](https://github.com/mbevc1/react/actions/workflows/pipelines.yml)
+
 # ReAcT
 Remote Execution Automation Control Tool (Remote Execution ACTions).
 
