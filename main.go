@@ -31,13 +31,20 @@ func main() {
 	flag.Parse()
 
 	if *ver {
-		fmt.Printf("%s %v\n", Name, Version)
-		if GitCommit != "" {
-			fmt.Printf("Commit hash: %v\n", GitCommit)
+		fmt.Printf("%s version %v\n", Name, version)
+		if commit != "" {
+			fmt.Printf("commit: %s\n", commit)
 		}
+		fmt.Printf("built at: %s\n", date)
+		fmt.Printf("built by: %s\n", builtBy)
 		os.Exit(0)
 	} else if *cmd == "" && !*bck && !*rbt && !*upg || *hlp {
-		fmt.Printf("%s %v\n", Name, Version)
+		fmt.Printf("%s version %v\n", Name, version)
+		if commit != "" {
+			fmt.Printf("commit: %s\n", commit)
+		}
+		fmt.Printf("built at: %s\n", date)
+		fmt.Printf("built by: %s\n", builtBy)
 		flag.PrintDefaults()
 		if *hlp {
 			os.Exit(0)

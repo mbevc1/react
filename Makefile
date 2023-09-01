@@ -12,6 +12,7 @@ RED=\033[31;01m
 VER?=dev
 GHASH:=$(shell git rev-parse --short HEAD)
 VERSION?=$(shell git describe --tags --always --dirty --match=v* 2> /dev/null || echo v0)
+GOTELEMETRY:=	off
 GO:=            go
 GO_BUILD:=      go build -mod vendor -ldflags "-s -w -X main.GitCommit=${GHASH} -X main.Version=${VERSION}"
 #VERSION="${VERSION}" goreleaser --snapshot --rm-dist
@@ -30,7 +31,7 @@ vendor: **/*.go ## Build vendor deps
 	GO111MODULE=on $(GO_VENDOR)
 
 clean: clean-vendor ## Clean artefacts
-	rm -rf $(BIN) $(BIN)_* $(BIN).exe go.sum
+	rm -rf $(BIN) $(BIN)_* $(BIN).exe dist/
 
 clean-vendor: ## Clean vendor folder
 	rm -rf vendor
@@ -40,6 +41,9 @@ build: clean $(BIN) ## Build binary
 
 run:
 	go run .
+
+snapshot: clean ## Build local snapshot
+	goreleaser build --snapshot --clean
 
 dev: clean ## Dev test target
 	go build -ldflags "-s -w -X main.Version=${VER}" -o $(BIN)
