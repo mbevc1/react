@@ -31,7 +31,7 @@ vendor: **/*.go ## Build vendor deps
 	GO111MODULE=on $(GO_VENDOR)
 
 clean: clean-vendor ## Clean artefacts
-	rm -rf $(BIN) $(BIN)_* $(BIN).exe go.sum
+	rm -rf $(BIN) $(BIN)_* $(BIN).exe dist/
 
 clean-vendor: ## Clean vendor folder
 	rm -rf vendor
@@ -41,6 +41,9 @@ build: clean $(BIN) ## Build binary
 
 run:
 	go run .
+
+snapshot: clean ## Build local snapshot
+	goreleaser build --snapshot --clean
 
 dev: clean ## Dev test target
 	go build -ldflags "-s -w -X main.Version=${VER}" -o $(BIN)
