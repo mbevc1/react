@@ -3,11 +3,12 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/mbevc1/react/ssh"
-	"github.com/mbevc1/react/yaml"
 	"log"
 	"os"
 	"time"
+
+	"github.com/mbevc1/react/ssh"
+	"github.com/mbevc1/react/yaml"
 )
 
 var cmd = flag.String("cmd", "", "Command to run")
