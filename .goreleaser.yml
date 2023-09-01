@@ -32,7 +32,7 @@ builds:
       - GOTELEMETRY="off"
     flags:
       - -v
-    ldflags: -X github.com/mbevc1/react/version.Version={{.Env.VERSION}}
+    ldflags: -X github.com/mbevc1/react/main.Version={{.Env.VERSION}}
 
 archives:
   - id: react
