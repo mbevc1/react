@@ -76,7 +76,7 @@ func main() {
 				panic(merr)
 			}
 			//MT backup command
-			cmd := fmt.Sprintf("/export compact file=backup ; /tool fetch address=127.0.0.1 mode=ftp user=%s password=%s src-path=backup.rsc dst-path=%s/%s.rsc ; /file remove backup.rsc ; /system backup save name=%s/%s.backup", element.User, element.Pass, bck_dir, dow, bck_dir, dow)
+			cmd := fmt.Sprintf("/export compact show-sensitive file=backup ; /tool fetch address=127.0.0.1 mode=ftp user=%s password=%s src-path=backup.rsc dst-path=%s/%s.rsc ; /file remove backup.rsc ; /system backup save name=%s/%s.backup", element.User, element.Pass, bck_dir, dow, bck_dir, dow)
 			ssh.Run(&cmd)
 			//Download locally
 			ssh.Download(bck_dir+"/"+dow+".rsc", dir+"/"+dow+".rsc")
