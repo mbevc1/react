@@ -49,4 +49,4 @@ Full contributing [guidelines are covered here](CONTRIBUTING.md).
 
 ## License
 
-GPL-3 Licensed. See [LICENSE](LICENSE) for full details.
+MPL-2.0 Licensed. See [LICENSE](LICENSE) for full details.
