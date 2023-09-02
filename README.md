@@ -44,8 +44,7 @@ Full contributing [guidelines are covered here](CONTRIBUTING.md).
 
 ## Authors
 
-* *Marko Bevc* - [@mbevc1](https://github.com/mbevc1)
-
+* [Marko Bevc](https://github.com/mbevc1)
 * Full [contributors list](https://github.com/mbevc1/react/graphs/contributors)
 
 ## License
