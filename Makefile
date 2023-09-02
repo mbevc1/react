@@ -36,6 +36,9 @@ clean: clean-vendor ## Clean artefacts
 clean-vendor: ## Clean vendor folder
 	rm -rf vendor
 
+clean-cache: ## Clean Golang mod cache
+	go clean --modcache
+
 build: clean $(BIN) ## Build binary
 	upx $(BIN)
 
