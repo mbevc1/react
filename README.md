@@ -50,3 +50,4 @@ Full contributing [guidelines are covered here](CONTRIBUTING.md).
 ## License
 
 MPL-2.0 Licensed. See [LICENSE](LICENSE) for full details.
+<!-- https://choosealicense.com/licenses/ -->
