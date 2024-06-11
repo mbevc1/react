@@ -85,7 +85,7 @@ jobs:
     - name: Run GoReleaser
       uses: goreleaser/goreleaser-action@v6
       with:
-        version: latest #'~> v2'
+        version: '~> v2' # latest
         args: release --clean
         workdir: .
       env:
