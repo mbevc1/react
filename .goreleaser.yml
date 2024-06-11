@@ -72,6 +72,5 @@ checksum:
   algorithm: sha256
 
 changelog:
-  skip: false
   use: git # github(-native)
   sort: asc
