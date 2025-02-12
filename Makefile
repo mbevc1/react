@@ -19,7 +19,7 @@ GO_BUILD:=      go build -mod vendor -ldflags "-s -w -X main.GitCommit=${GHASH} 
 GO_VENDOR:=     go mod vendor
 BIN:=           react
 
-help:: ## Show this help
+help: ## Show this help
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[33m%-20s\033[0m %s\n", $$1, $$2}'
 
 $(BIN): vendor ## Produce binary
