@@ -1,11 +1,12 @@
 module github.com/mbevc1/react
 
-go 1.22
+go 1.23.0
+
 toolchain go1.24.1
 
 require (
 	github.com/sfreiberg/simplessh v0.0.0-20220719182921-185eafd40485
-	github.com/stretchr/testify v1.10.0
+	github.com/stretchr/testify v1.11.0
 	gopkg.in/yaml.v2 v2.4.0
 )
 
